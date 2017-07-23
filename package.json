@@ -1,0 +1,29 @@
+{
+  "name": "apizone.no",
+  "version": "1.0.0",
+  "description": "Api Zone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neorgon/apizone.git"
+  },
+  "keywords": [
+    "API",
+    "NodeJS",
+    "Express",
+    "MongoDB",
+    "Mongoose"
+  ],
+  "author": "Nestor Otondo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neorgon/apizone/issues"
+  },
+  "homepage": "https://github.com/neorgon/apizone#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
