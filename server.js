@@ -1,3 +1,19 @@
+var express = require('express'),
+    app = express();
+
+var router = express.Router();
+
+router.get('/', function(req, res) {
+    res.send('Hello world');
+});
+
+app.use(router);
+
+app.listen(3000, function() {
+    console.log('Node server running on http://localhost:3000/')
+});
+
+
 var db = require('mongoose');
 const usedb = 'mongodb://127.0.0.1:27017/soccer';
 
@@ -8,15 +24,3 @@ db.connection.once('open', function() {
   .on('error', function() {
     console.error();
   });
-
-/*
-var mongodb = require('mongodb');
-var server = new mongodb.Server("127.0.0.1", 27017, {});
-new mongodb.Db('soccer', server, {}).open(function (error, client) {
-  if (error) throw error;
-  var team = new mongodb.Collection(client, 'team');
-  collection.find({}, {limit:10}).toArray(function(err, docs) {
-    console.dir(docs);
-  });
-});
-*/
