@@ -29,7 +29,7 @@ router.use(function(req, res, next) {
 
 var Team = require('./app/models/team');
 
-router.route('/teams')
+router.route('/team')
   .post(function(req, res) {
     var team = new Team();
     team.name = req.body.name;
@@ -44,16 +44,30 @@ router.route('/teams')
     });
   });
 
-router.route('/list/teams')
+router.route('/list/team')
   .get(function(req, res) {
-    Team.find(function(err, teams) {
+    /*Team.find(function(err, teams) {
       if (err) {
         res.send(err);
       }
+      res.json({ message: 'List team' });
+      //res.json(team);
+      res.status(200).send(teams);
+    });*/
+    /*Team.find({}, function (err, teams) {
+        if (err) return res.status(500).send("There was a problem finding the users.");
+        res.status(200).send(teams);
+    });*/
+    var collection = db.collection('team');
 
-      res.json(teams);
+    collection.find(/*{}, */function(err, docs) {
+      docs.each(function(err, doc) {
+        if (doc) {
+          console.log(doc);
+        }
+      })
+    });
   });
-});
 
 app.use('/api', router);
 
