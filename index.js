@@ -33,7 +33,7 @@ router.route('/teams')
   .post(function(req, res) {
     var team = new Team();
     team.name = req.body.name;
-    tema.country = req.body.country;
+    team.country = req.body.country;
 
     team.save(function(err) {
       if (err) {
@@ -43,6 +43,17 @@ router.route('/teams')
       res.json({ message: 'Team created!' });
     });
   });
+
+router.route('/list/teams')
+  .get(function(req, res) {
+    Team.find(function(err, teams) {
+      if (err) {
+        res.send(err);
+      }
+
+      res.json(teams);
+  });
+});
 
 app.use('/api', router);
 
